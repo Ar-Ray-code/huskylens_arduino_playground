@@ -1,4 +1,4 @@
-### rotation_camera(huskylens_arduino_playground)
+# rotation_camera(huskylens_arduino_playground)
 
 Arduino UNO's GPIO connection
 
