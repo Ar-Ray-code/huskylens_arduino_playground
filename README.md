@@ -17,3 +17,4 @@
 Tracking object and rotation camera.
 
 - [rotation_camera](https://github.com/Ar-Ray-code/huskylens_arduino_playground/tree/main/rotation_camera)
+- [rotation_with_2wheels](https://github.com/Ar-Ray-code/huskylens_arduino_playground/tree/main/rotation_with_2wheels)

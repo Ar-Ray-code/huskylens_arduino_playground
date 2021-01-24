@@ -18,7 +18,9 @@ SoftwareSerial mySerial(10, 11); // RX, TX
 int x = 90;
 int old_x = 90;
 float p = 0.05;
-float d = 0.7;
+float d = 0.5;
+
+int flip_i = 0;
 
 void printResult(HUSKYLENSResult result);
 void servo_write(int ch, int ang);
@@ -59,8 +61,26 @@ void loop() {
             Serial.print("x:");
             Serial.print(x);
             Serial.print(" center:");
-            Serial.println((result.xCenter - 160));
+            Serial.print((result.xCenter - 160));
             delay(50);
+            if(abs(result.xCenter -160 )<5 && abs(x-90)>5 && flip_i)
+            {
+              if(x > 90){
+                servo_write(1,90+12);
+                servo_write(2,90+12);
+                Serial.println("move:+");
+              }else if(x < 90){
+                servo_write(1,90-10);
+                servo_write(2,90-10);
+                Serial.println("move:-");
+              }
+              flip_i = 0;
+            }
+            else{
+              Serial.println("move:0");
+              servo_write(1,90);
+              flip_i = 1;
+            }
             old_x = x;
         }    
     }
